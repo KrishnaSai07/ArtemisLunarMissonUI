@@ -47,7 +47,7 @@ export class PostLogsComponent implements OnInit{
   ngOnInit()
   {
       this.username = this.appService.convertbase64ToString(this.cookieService.get('username'));
-      this.email = 'leonard.Hofstader@gmail.com';
+      this.email = '';
   }
 
   cancel()

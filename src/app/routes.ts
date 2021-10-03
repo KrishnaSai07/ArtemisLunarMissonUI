@@ -13,6 +13,7 @@ import { ViewPublicLogsComponent } from "./viewPublicLogs.component";
 
 
 export const artemisRoutes: Routes = [
+    { path: '',   redirectTo: '/login', pathMatch: 'full' },
     {path:'login',component:LoginComponent},
     {path:'myLogs',component:PersonalLogsComponent,canActivate: [AuthGuard]},
     {path:'viewLogs/:id',component:ViewLogsComponent,canActivate: [AuthGuard]},
