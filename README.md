@@ -4,7 +4,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Install Node-Modules
 
-Run 'npm install' to get all the required node modules for running the app.
+Run `npm install` to get all the required node modules for running the app.
 
 ## Development server
 
