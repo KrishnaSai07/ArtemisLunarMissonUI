@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Artemis Lunar Mission Control</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    </head>
+    <body style="background-color: black;overflow-x: hidden;overflow-y: hidden;">
+        <header-element></header-element>
+        <div class="animate-area" style="background-image: url('assets/images/Luna.jpg');height: 640px;width: 1372px;padding-left: 120px;padding-top: 60px;">
+            <h6 style="color: white;padding-top: 5px;">Share Your Log</h6>
+            <div class = "row" style="padding-top: 60px; padding-left: 300px;width: 1200px;height: 400px;">
+                <div class="col-7" style="border-radius: 30px 30px 30px 30px;">
+                    <span>{{message}}</span>
+                   <div class="form-group pt-3 pr-3">
+                       <span style="color: white;padding-left: 10px;">Please enter the details of the member you want to share the log:</span>
+                       <form>
+                           <input [(ngModel)]="username" type="text" name="artemisUserName" class="form-control pd-3" placeholder="ALMC UserName" style="border-radius: 20px 20px 20px 20px" required/>
+                           <br>
+                           <input [(ngModel)]="email" type="email" name="artemisPassword" class="form-control pd-3" placeholder="ALMC Email" style="border-radius: 20px 20px 20px 20px" required />
+                            <br>
+                            <div class = "btn-group">
+                                    <button type="submit" class="btn-dark" style="border-radius: 20px 20px 20px 20px; height:45px; width:190px;" (click)="confirm()">Confirm</button>
+                                    <button type="button" class="btn-dark" style="border-radius: 20px 20px 20px 20px; height:45px; width:190px; ;" (click)="cancel()">Cancel</button>
+                            </div>       
+                        </form>
+                   </div>     
+                </div>
+            </div>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>     
+    </body>

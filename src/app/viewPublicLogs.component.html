@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Artemis Lunar Mission Control</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    </head>
+    <body style="background-color: black;overflow-x: hidden;overflow-y: hidden;">
+        <header-element></header-element>
+        <div class="animate-area" style="background-image: url('assets/images/Luna.jpg');height: 640px;width: 1372px;padding-left: 120px;padding-top:70px;">
+            <div class="row">
+                <div class="col-3">
+                    <span style="color: white;"><h6>Detailed Log</h6></span>
+                </div>
+                <div class="col-3">
+                    <span style="color: white;">Time of the entry : {{logsData.postTime | date :'MM/dd/yyyy h:mm a'}}</span>
+                </div>
+                <div style="padding-left: 80px;">
+                    <span style="color: white;">Author who posted : {{logsData.username}} </span>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-6" style="display: inline;">
+                    <span style="color: white; padding-right: 10px;">Subject :</span> <input type="text" name="subject" value="" [(ngModel)]="logsData.subject" style="border-radius: 20px 20px 20px 20px ; width: 550px;" disabled />
+                    <br>
+                    <br>
+                    <span style="color: white; padding-right: 10px;">Detailed Content :</span>
+                    <br>
+                    <textarea value="" [(ngModel)]="logsData.context" style="border-radius: 20px 20px 20px 20px ; width: 550px; height: 200px; padding-left: 20px; resize: none;" disabled></textarea>
+                    <br>
+                    <br>
+                    <br>
+                </div>
+                <div class="col-6">
+                    <span style="color: white; padding-right: 10px;">Files associated with the log :</span>
+                        <br>
+                        <div *ngFor="let file of downloadFiles;let i=index" style="padding-left: 100px;padding-top: 10px;">
+                              <span style="color: white; padding-right: 50px;">{{file}}</span><button style="border-radius: 20px 20px 20px 20px ; width: 120px;background-color: black;color: white;"  (click)="download(i)">Download</button>  
+                        </div>   
+                        
+                    </div>
+            </div>
+        </div>  
+    </body>
+</html>        

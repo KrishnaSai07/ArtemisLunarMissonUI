@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Artemis Lunar Mission Control</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    </head>
+    <body style="background-color: black;overflow-x: hidden;overflow-y: hidden;">
+        <header-element></header-element>
+        <div class="animate-area" style="background-image: url('assets/images/Luna.jpg');height: 640px;width: 1372px;padding-left: 120px;padding-top: 70px;">
+            <div class="row">
+                <div class="col-3">
+                    <span style="color: white;"><h6>Detailed Log</h6></span>
+                </div>
+                <div class="col-5">
+                    <span style="color: white;">Time of the entry : {{postTime | date :'MM/dd/yyyy h:mm a'}}</span>
+                </div>
+                <div *ngIf="sharedWith" class="col-3" style="padding-left: 40px;">
+                    <a style="color: white;" href="/share/{{logId}}">Share With ..</a>    
+                </div>    
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-6" style="display: inline;">
+                    <span style="color: white; padding-right: 10px;">Subject :</span> <input type="text" name="subject" value="" [(ngModel)]="subject" style="border-radius: 20px 20px 20px 20px ; width: 550px;" />
+                    <br>
+                    <br>
+                    <span style="color: white; padding-right: 10px;">Detailed Content :</span>
+                    <br>
+                    <textarea value="" [(ngModel)]="context" style="border-radius: 20px 20px 20px 20px ; width: 550px; height: 200px; padding-left: 20px; resize: none;"></textarea>
+                    <br>
+                    <br>
+                    <span style="color: white;">Log Visibility</span>
+                    <br>
+                    <select  (change) = "ChangeValue($event)" style="color: white;background-color: black;border-radius: 20px 20px 20px 20px ; width: 120px;" name="visibility" [(ngModel)]="logAccess">
+                        <option *ngFor="let access of accessOptions" [value]="access">{{access}}</option>
+                    </select>
+                    <br>
+                    <div class="row" style="padding-top: 30px;">
+                        <div class="col-3">
+                            <button style="border-radius: 20px 20px 20px 20px ; width: 120px;background-color: black;color: white;"  (click)="save()">Save</button>
+                        </div>
+                        <div class="col-3">
+                            <button style="border-radius: 20px 20px 20px 20px ; width: 120px;background-color: black;color: white;"  (click)="cancel()">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <span style="color: white; padding-right: 10px;">Files associated with the log :</span>
+                        <br>
+                        <div *ngFor="let file of downloadFiles;let i=index" style="padding-left: 100px;padding-top: 10px;">
+                              <span style="color: white; padding-right: 50px;">{{file}}</span><button style="border-radius: 20px 20px 20px 20px ; width: 120px;background-color: black;color: white;"  (click)="delete(i)">Delete</button>  
+                        </div>
+                        <br>
+                        <div class="row" style="padding-left: 110px;">
+                            <input type="file" class="file-input" style="color: white;" (change)="upload($event)" name="Upload" /><button style="border-radius: 20px 20px 20px 20px ; width: 120px;background-color: black;color: white;"  (click)="uploadClick()">Upload</button>    
+                        </div>    
+                    </div>
+            </div>
+        </div>  
+    </body>
+</html>        
